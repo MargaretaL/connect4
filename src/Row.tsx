@@ -1,7 +1,7 @@
-import { Cell, CellProps } from './Cell';
+import { Cell } from './Cell';
 
 interface Props {
-  row: CellProps[];
+  row: (number | undefined | null)[];
   play: (column: number) => void;
 }
 

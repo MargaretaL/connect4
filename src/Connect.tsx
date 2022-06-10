@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
 import React, { Reducer, useCallback, useEffect, useReducer } from 'react';
-import { CellProps } from './Cell';
 import { Row } from './Row';
 import { checkFourInARow } from './utils';
 
 interface GameHistoryItem {
-  currentPlayer?: number;
-  board?: [] | any[][];
+  currentPlayer?: number | null;
+  board?: (number | undefined | null)[][];
   message?: string;
   gameOver?: boolean;
 }
@@ -17,12 +16,12 @@ interface State {
 
 interface Action {
   type: string;
-  board?: [] | any[][];
+  board?: (number | undefined | null)[][];
   message?: string;
   nextPlayer?: number;
 }
 
-const initialGameState = {
+const initialGameState: State = {
   gameHistory: [
     {
       currentPlayer: 1,
@@ -186,7 +185,7 @@ export const Connect = () => {
     <>
       <Table>
         <tbody>
-          {latestGameHistoryItem?.board?.map((row: CellProps[], i: number) => (
+          {latestGameHistoryItem?.board?.map((row, i: number) => (
             <Row key={i} row={row} play={play} />
           ))}
         </tbody>

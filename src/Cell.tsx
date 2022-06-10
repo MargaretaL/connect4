@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
-export interface CellProps {
-  value: any;
+interface Props {
+  value: number | undefined | null;
   play: (column: number) => void;
   columnIndex: number;
 }
@@ -25,7 +25,7 @@ const FlexCell = styled.div<{
   background-color: ${({ color }) => color};
 `;
 
-export const Cell = ({ value, columnIndex, play }: CellProps) => {
+export const Cell = ({ value, columnIndex, play }: Props) => {
   return (
     <td>
       <Flex
