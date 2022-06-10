@@ -22,7 +22,7 @@ const checkIfEqual = (
 
 const checkVertical = (board: []) => {
   // Check only if row is 3 or greater
-  for (let row = 3; row < 6; row++) {
+  for (let row = 3; row < board.length; row++) {
     for (let col = 0; col < 7; col++) {
       if (
         checkIfEqual(
@@ -40,7 +40,7 @@ const checkVertical = (board: []) => {
 
 const checkHorizontal = (board: []) => {
   // Check only if column is 3 or less
-  for (let row = 0; row < 6; row++) {
+  for (let row = 0; row < board.length; row++) {
     for (let col = 0; col < 4; col++) {
       if (
         checkIfEqual(
@@ -58,7 +58,7 @@ const checkHorizontal = (board: []) => {
 
 const checkDiagonalRight = (board: []) => {
   // Check only if row is 3 or greater AND column is 3 or less
-  for (let row = 3; row < 6; row++) {
+  for (let row = 3; row < board.length; row++) {
     for (let col = 0; col < 4; col++) {
       if (
         checkIfEqual(
@@ -76,7 +76,7 @@ const checkDiagonalRight = (board: []) => {
 
 const checkDiagonalLeft = (board: any[]) => {
   // Check only if row is 3 or greater AND column is 3 or greater
-  for (let row = 3; row < 6; row++) {
+  for (let row = 3; row < board.length; row++) {
     for (let col = 3; col < 7; col++) {
       if (
         checkIfEqual(
@@ -93,7 +93,7 @@ const checkDiagonalLeft = (board: any[]) => {
 };
 
 const checkDraw = (board: any[]) => {
-  for (let row = 0; row < 6; row++) {
+  for (let row = 0; row < board.length; row++) {
     for (let col = 0; col < 7; col++) {
       if (board[row][col] === null) {
         return null;

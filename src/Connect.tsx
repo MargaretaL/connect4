@@ -194,7 +194,7 @@ export const Connect = () => {
           ))}
         </tbody>
       </Table>
-      <p>{latestGameHistoryItem?.message}</p>
+      <p>{latestGameHistoryItem.message}</p>
       <Buttons>
         <Button
           bg="green"
