@@ -1,14 +1,14 @@
-import { Cell } from './Cell';
+import { Cell, CellProps } from './Cell';
 
 interface Props {
-  row: [][];
+  row: CellProps[];
   play: (column: number) => void;
 }
 
 export const Row = ({ row, play }: Props) => {
   return (
     <tr>
-      {row.map((cell: {}, i: number) => (
+      {row.map((cell, i: number) => (
         <Cell key={i} value={cell} columnIndex={i} play={play} />
       ))}
     </tr>

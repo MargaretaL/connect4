@@ -1,5 +1,6 @@
 import styled from '@emotion/styled';
 import React, { Reducer, useCallback, useEffect, useReducer } from 'react';
+import { CellProps } from './Cell';
 import { Row } from './Row';
 import { checkFourInARow } from './utils';
 
@@ -124,15 +125,12 @@ export const Connect = () => {
     gameState?.gameHistory?.[gameState?.gameHistory.length - 1] ||
     initialGameState;
 
-  console.log('latestGameHistory', latestGameHistoryItem);
-
   const play = useCallback(
     (column: number) => {
       if (!latestGameHistoryItem.gameOver) {
         let board = latestGameHistoryItem?.board?.map((columns) => [
           ...columns,
         ]);
-        console.log('board', board);
         //check if cell is taken, starting at the bottom row and upwards
         for (let row = 5; row >= 0; row--) {
           if (board && !board[row][column]) {
@@ -142,7 +140,6 @@ export const Connect = () => {
         }
         // Check status of board using checkForWin function from ./utils
         let result = checkFourInARow(board);
-        console.log('board', board);
 
         if (result === 1) {
           dispatchGameState({
@@ -189,7 +186,7 @@ export const Connect = () => {
     <>
       <Table>
         <tbody>
-          {latestGameHistoryItem?.board?.map((row: [][], i: number) => (
+          {latestGameHistoryItem?.board?.map((row: CellProps[], i: number) => (
             <Row key={i} row={row} play={play} />
           ))}
         </tbody>

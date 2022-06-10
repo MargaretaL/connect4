@@ -14,7 +14,6 @@ const checkIfEqual = (
   third: number,
   fourth: number
 ) => {
-  console.log(first, second, third, fourth);
   return (
     first !== null && first === second && first === third && first === fourth
   );

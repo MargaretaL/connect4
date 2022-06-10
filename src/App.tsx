@@ -32,7 +32,7 @@ function App() {
           }
         `}
       />
-      <header className="App-header">
+      <header>
         <Connect />
       </header>
     </Container>
